@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>계산기</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial';
+    }
+
+    .calculator {
+      background: #222;
+      padding: 20px;
+      border-radius: 20px;
+      width: 320px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .display {
+      background: #000;
+      color: white;
+      font-size: 2rem;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: right;
+      margin-bottom: 20px;
+      min-height: 60px;
+      overflow-x: auto;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    button {
+      font-size: 1.5rem;
+      padding: 20px;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* 숫자: 동그라미 */
+    .number {
+      background: #444;
+      border-radius: 50%;
+    }
+
+    /* 숫자 0: 동그라미 */
+    .zero {
+      grid-column: span 2;
+      border-radius: 50% !important;
+    }
+
+    /* 사칙연산자: 사각형 */
+    .operator {
+      background: orange;
+      border-radius: 0;
+    }
+
+    /* 그 외 연산자 (=, AC, %, .): 타원형 */
+    .special {
+      background: orange;
+      border-radius: 30% / 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display"></div>
+    <div class="buttons">
+      <button class="special" onclick="clearDisplay()">AC</button>
+      <button class="special" onclick="appendOperator('%')">%</button>
+      <button class="operator" onclick="appendOperator('/')">÷</button>
+      <button class="operator" onclick="appendOperator('*')">×</button>
+
+      <button class="number" onclick="appendNumber('7')">7</button>
+      <button class="number" onclick="appendNumber('8')">8</button>
+      <button class="number" onclick="appendNumber('9')">9</button>
+      <button class="operator" onclick="appendOperator('-')">−</button>
+
+      <button class="number" onclick="appendNumber('4')">4</button>
+      <button class="number" onclick="appendNumber('5')">5</button>
+      <button class="number" onclick="appendNumber('6')">6</button>
+      <button class="operator" onclick="appendOperator('+')">+</button>
+
+      <button class="number" onclick="appendNumber('1')">1</button>
+      <button class="number" onclick="appendNumber('2')">2</button>
+      <button class="number" onclick="appendNumber('3')">3</button>
+      <button class="special" onclick="calculate()">=</button>
+
+      <button class="number zero" onclick="appendNumber('0')">0</button>
+      <button class="special" onclick="appendOperator('.')">.</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+
+    function appendNumber(num) {
+      display.innerText += num;
+    }
+
+    function appendOperator(op) {
+      display.innerText += op;
+    }
+
+    function clearDisplay() {
+      display.innerText = "";
+    }
+
+    function calculate() {
+      display.innerText = eval(display.innerText); // 오류 처리 생략
+    }
+  </script>
+</body>
+</html>

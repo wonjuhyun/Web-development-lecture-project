@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .screen {
+      width: 240px;
+      height: 40px;
+      font-size: 20px;
+      text-align: center;
+      line-height: 40px;
+      border: 1px solid #000;
+      margin-bottom: 20px;
+    }
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      gap: 5px;
+    }
+    .key {
+      height: 60px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen" id="screen"></div>
+  <div class="keypad" id="keypad"></div>
+
+  <script>
+    const screen = document.getElementById("screen");
+    const keypad = document.getElementById("keypad");
+    const keys = [..."123456789*0#"];
+    let raw = "";
+
+    keys.forEach(k => {
+      keypad.innerHTML += `<button class="key">${k}</button>`;
+    });
+
+    keypad.onclick = e => {
+      const k = e.target.textContent;
+      if (!k || raw.length >= 20) return;
+      raw += k;
+
+      const d = raw.replace(/\D/g, "");
+      const f = d.length > 7
+        ? d.slice(0,3) + "-" + d.slice(3,7) + "-" + d.slice(7)
+        : d.length > 3
+        ? d.slice(0,3) + "-" + d.slice(3)
+        : d;
+
+      screen.textContent = f + raw.replace(/[0-9]/g, "");
+    };
+  </script>
+</body>
+</html>
