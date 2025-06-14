@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>나의 웹 홈페이지</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav li {
+      margin: 0 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .project-list {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .project-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-list li {
+      margin: 15px 0;
+      font-size: 18px;
+    }
+
+    .project-list a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .project-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 15px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GNB -->
+  <nav>
+    <ul>
+      <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/">홈</a></li>
+      <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/typingwriter1.html">영문 타자기</a></li>
+      <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/typingwriter2.html">한/영 타자기</a></li>
+      <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/calculator.html">계산기</a></li>
+      <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/phone.html">전화기</a></li>
+    </ul>
+  </nav>
+
+  <!-- 초기 페이지 (Site Map) -->
+  <main>
+    <h1>나의 웹 프로젝트 홈페이지</h1>
+    <div class="project-list">
+      <p><strong>아래는 나의 4가지 프로젝트입니다:</strong></p>
+      <ul>
+        <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/typingwriter1.html">영문 타자기</a></li>
+        <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/typingwriter2.html">한/영 타자기</a></li>
+        <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/calculator.html">계산기</a></li>
+        <li><a href="https://wonjuhyun.github.io/Web-development-lecture-project/phone.html">전화기</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    ⓒ 한양여자대학교 빅데이터과 2402183 원주현
+  </footer>
+
+</body>
+</html>
